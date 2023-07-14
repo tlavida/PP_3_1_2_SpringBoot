@@ -1,0 +1,60 @@
+package com.example.pp_3_2_1_springboot.service;
+
+import com.example.pp_3_2_1_springboot.dao.UserDao;
+import com.example.pp_3_2_1_springboot.dto.UserDto;
+import com.example.pp_3_2_1_springboot.model.User;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Service
+@Transactional
+public class UserServiceImp implements UserService {
+
+    private final UserDao userDao;
+    @Autowired
+    public UserServiceImp(UserDao userDao, ModelMapper modelMapper) {
+        this.userDao = userDao;
+        this.modelMapper = modelMapper;
+    }
+
+    private final ModelMapper modelMapper;
+    @Override
+    public void add(UserDto userDto) {
+        User user = new User(userDto);
+        userDao.add(user);
+    }
+
+    @Override
+    public List<UserDto> getListOfUsers() {
+        return userDao.listUsers().stream().map(UserDto::new).collect(Collectors.toList());
+    }
+
+    @Override
+    public UserDto findById(Long id) {
+//        return new UserDto(userDao.findById(id));
+        User user = this.userDao.findById(id);
+        UserDto userDto = this.modelMapper.map(user, UserDto.class);
+        return userDto;
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        userDao.remove(userDao.findById(id));
+    }
+
+    @Override
+    public void merge(UserDto userDto) {
+        User user = userDao.findById(userDto.getId());
+        user.setName(userDto.getName());
+        user.setSurname(userDto.getSurname());
+        user.setAge(userDto.getAge());
+        userDao.merge(user);
+    }
+
+
+}
