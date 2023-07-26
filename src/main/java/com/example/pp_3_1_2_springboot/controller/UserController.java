@@ -1,7 +1,7 @@
-package com.example.pp_3_2_1_springboot.controller;
+package com.example.pp_3_1_2_springboot.controller;
 
-import com.example.pp_3_2_1_springboot.dto.UserDto;
-import com.example.pp_3_2_1_springboot.service.UserService;
+import com.example.pp_3_1_2_springboot.dto.UserDto;
+import com.example.pp_3_1_2_springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

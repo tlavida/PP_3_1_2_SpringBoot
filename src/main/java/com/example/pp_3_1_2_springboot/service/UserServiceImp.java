@@ -1,8 +1,8 @@
-package com.example.pp_3_2_1_springboot.service;
+package com.example.pp_3_1_2_springboot.service;
 
-import com.example.pp_3_2_1_springboot.dao.UserDao;
-import com.example.pp_3_2_1_springboot.dto.UserDto;
-import com.example.pp_3_2_1_springboot.model.User;
+import com.example.pp_3_1_2_springboot.dao.UserDao;
+import com.example.pp_3_1_2_springboot.dto.UserDto;
+import com.example.pp_3_1_2_springboot.model.User;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

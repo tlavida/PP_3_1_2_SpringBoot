@@ -1,7 +1,7 @@
-package com.example.pp_3_2_1_springboot.dao;
+package com.example.pp_3_1_2_springboot.dao;
 
 
-import com.example.pp_3_2_1_springboot.model.User;
+import com.example.pp_3_1_2_springboot.model.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.persistence.PersistenceContext;

@@ -1,35 +1,41 @@
-package com.example.pp_3_2_1_springboot.dto;
+package com.example.pp_3_1_2_springboot.model;
 
 
-import com.example.pp_3_2_1_springboot.model.User;
+import com.example.pp_3_1_2_springboot.dto.UserDto;
+import jakarta.persistence.*;
 
-public class UserDto {
+@Entity
+@Table(name = "users")
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "surname")
     private String surname;
+    @Column(name = "age")
     private Byte age;
 
-    public UserDto(String name, String surname, Byte age, Long id) {
-        this.id = id;
+
+    public User(String name, String surname, Byte age) {
         this.name = name;
         this.surname = surname;
         this.age = age;
     }
 
-    public UserDto() {
+    public User(UserDto userDto) {
+        this.name = userDto.getName();
+        this.surname = userDto.getSurname();
+        this.age = userDto.getAge();
     }
 
-    public UserDto(User user) {
-        this.id = user.getId();
-        this.name = user.getName();
-        this.surname = user.getSurname();
-        this.age = user.getAge();
+    public User() {
     }
 
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }

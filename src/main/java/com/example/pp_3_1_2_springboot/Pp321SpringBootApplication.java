@@ -1,4 +1,4 @@
-package com.example.pp_3_2_1_springboot;
+package com.example.pp_3_1_2_springboot;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
